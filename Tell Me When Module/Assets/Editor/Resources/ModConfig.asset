@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 615501dbe4f3fe94fbf4b564abb10237, type: 3}
+  m_Name: ModConfig
+  m_EditorClassIdentifier: 
+  id: GSTellMeWhen
+  title: Tell Me When
+  author: GhostSalt
+  description: "A big red button. What else do you want?\r\n\r\nMy first attempt at
+    making a module. You gotta start somewhere, specifically 01.\n\nTP support included."
+  version: 1.0
+  outputFolder: build
+  previewImage: {fileID: 2800000, guid: 76cd29153d55c5840a7bbed73d3d5446, type: 3}
