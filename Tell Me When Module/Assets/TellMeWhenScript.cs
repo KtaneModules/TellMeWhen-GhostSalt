@@ -61,6 +61,7 @@ public class TellMeWhenScript : MonoBehaviour {
         if (Timer.text == 31.ToString())
         {
             Begin = false;
+            TimerOn = false;
             time = 1;
             Audio.PlaySoundAtTransform("buzzer", Button.transform);
             Module.HandleStrike();
@@ -179,7 +180,7 @@ public class TellMeWhenScript : MonoBehaviour {
         {
             if (!TimerOn)
             {
-                StartCoroutine(ActivateTimer());
+                Begin = true;
                 Debug.LogFormat("[Tell Me When #{0}] You took a shot at solving the module.", _moduleID);
                 TimerOn = true;
             }
@@ -190,27 +191,15 @@ public class TellMeWhenScript : MonoBehaviour {
             }
         }
     }
-    private IEnumerator ActivateTimer() {
-        Begin = true;
-        yield return null;
-        while (Timer.text != "--" && Timer.text != "GG")
-        {
-            Audio.PlaySoundAtTransform("bleep", Button.transform);
-            yield return new WaitForSeconds(1f);
-        }
-        yield break;
-    }
 
     void CheckAnswer()
     {
         Begin = false;
         time = 1;
-
-
         if (Timer.text == TimeIThink.ToString("00"))
         {
             Module.HandlePass();
-            Audio.PlaySoundAtTransform("solve", Button.transform);
+            Audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.CorrectChime, Button.transform);
             Debug.LogFormat("[Tell Me When #{0}] {1} was indeed the correct answer. Poggers!", _moduleID, Timer.text);
             Solved = true;
             Timer.text = "GG";
